@@ -15,34 +15,26 @@ function verifyCaptcha(token) {
 	document.getElementById('g-recaptcha-error').innerHTML = '';
 }
 
+function submitUserForm() {
+    // Perform form validation here if needed
 
-// function submitUserForm() {
-//     var firstName = document.querySelector('input[name="firstName"]').value;
-//     var lastName = document.querySelector('input[name="lastName"]').value;
-//     var phone = document.querySelector('input[name="phone"]').value;
-//     var ext = document.querySelector('input[name="ext"]').value;
-//     var email = document.querySelector('input[name="email"]').value;
+    // Get form data
+    const formData = new FormData(document.getElementById('contact-form'));
 
-//     var formData = new FormData();
-//     formData.append('firstName', firstName);
-//     formData.append('lastName', lastName);
-//     formData.append('phone', phone);
-//     formData.append('ext', ext);
-//     formData.append('email', email);
+    // Send form data to server-side script
+    fetch('mail.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log(result);
+        // Optionally, display a success message to the user
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Optionally, display an error message to the user
+    });
 
-    
-//     fetch('mail.php', {
-//         method: 'POST',
-//         body: formData
-//     })
-//     .then(response => response.text())
-//     .then(data => {
-//         // Process the response from the PHP script if needed
-//         console.log(data);
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
-//     return false;
-// }
-
+    return false; // Prevent the default form submission
+}
