@@ -28,7 +28,7 @@ function submitUserForm() {
     })
     .then(response => response.text())
     .then(result => {
-        console.log(result);
+        console.log("asdasdasd");
         // Optionally, display a success message to the user
     })
     .catch(error => {
