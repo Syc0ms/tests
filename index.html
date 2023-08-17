@@ -34,7 +34,7 @@
                 <h4>To enter an Event Request, please fill out the following form.</h4>
 				<h2> Your Contact Information </h2>
 				<div class="registration">
-					<form method="post" action="mail.php" id="contact-form" onsubmit="return submitUserForm();">
+					<form method="POST" action="mail.php" id="contact-form" onsubmit="return submitUserForm();">
 						<div class="input-div">
 							<span>First Name</span>
 							<input type="text" name="firstName">
@@ -49,7 +49,7 @@
 						</div>
 						<div class="input-div">
 							<span>Phone Number</span>
-							<input type="text" name="phone">
+							<input id="phone" type="text" name="phone">
 							<input class="ext" type="text" placeholder="ext" name="ext"> 
 						</div>
 						<div class="input-div">
@@ -63,18 +63,18 @@
 						<span>
 							Nature of this Event (e.g., Birthday Party or Business Dinner)
 						</span>
-						<textarea name="" id="" cols="100%" rows="5"></textarea>
+						<textarea class="textarea" name="" id="" cols="100%" rows="5"></textarea>
 						<div class="input-div">
 							<span>Event Date</span>
-							<input class="timepicker" type="date" >
+							<input class="date" type="date" >
 						</div>
 							<div class="input-div">
 								<span>Start Time</span>
-								<input class="timepicker">
+								<input class="timepicker" readonly>
 							</div>
 							<div class="input-div">
 								<span>End Time</span>
-								<input class="timepicker">
+								<input class="timepicker" type="email" pattern=".+@globex\.com" readonly>
 							</div>
 							<div class="input-div">
 								<span> Number of People (Minimum of 40) </span>
@@ -86,7 +86,7 @@
 							Is there any additional information you would like to add?
 
                         </span>
-                        <textarea name="" id="" cols="100%" rows="5"></textarea>
+                        <textarea class="textarea" id="" cols="100%" rows="5"></textarea>
 						<div class="options">
 							<span> How did you hear about us? </span>
 							<select id="menu">

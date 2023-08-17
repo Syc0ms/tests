@@ -15,26 +15,22 @@ function verifyCaptcha(token) {
 	document.getElementById('g-recaptcha-error').innerHTML = '';
 }
 
-function submitUserForm() {
-    // Perform form validation here if needed
+$(document).ready(function() {
+    $("#contact-form").submit(function(event) {
+        event.preventDefault(); // Prevent the default form submission
+	    console.log("asdasd")
 
-    // Get form data
-    const formData = new FormData(document.getElementById('contact-form'));
+        var formData = $(this).serialize(); // Serialize the form data
 
-    // Send form data to server-side script
-    fetch('mail.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(result => {
-        console.log("asdasdasd");
-        // Optionally, display a success message to the user
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Optionally, display an error message to the user
+        $.ajax({
+            type: "POST",
+            url: "mail.php",
+            data: formData,
+            dataType: "html",
+            success: function(response) {
+                // Handle the response here, e.g., show a message to the user
+                alert(response);
+            }
+        });
     });
-
-    return false; // Prevent the default form submission
-}
+});
