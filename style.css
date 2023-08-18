@@ -247,6 +247,10 @@ letter-spacing: 1px;
 	select {
 		font-size: 11px;
 	}
+	.submit {
+		height: 40px;
+		border-radius: 8px;
+	}	
   }
 
 @media screen and (max-width: 400px) {
@@ -288,4 +292,8 @@ letter-spacing: 1px;
 		transform-origin: 0 0;
 
 	}
+	.submit {
+		height: 40px;
+		border-radius: 8px;
+	}	
   }
